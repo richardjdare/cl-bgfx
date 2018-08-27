@@ -2,16 +2,7 @@
 
 (in-package :cl-bgfx-examples)
 
-;;just for test purposes
-(defconstant +BGFX-DEBUG-TEXT+ #x8 "Enable debug text display.")
-(defconstant +BGFX-RESET-VSYNC+ #x80 "Enable V-Sync.")
-(defconstant +BGFX-CLEAR-COLOR+ #x1 "Clear color.")
-(defconstant +BGFX-CLEAR-DEPTH+ #x2 "Clear depth.")
-
-(defun basic-test ()
-  (print "foo"))
-
-(defun zetcode-main (class-name wndproc &key (width 800) (height 600))
+(defun winmain (class-name wndproc &key (width 800) (height 600))
   (register-class
    class-name 
    wndproc 
@@ -76,6 +67,6 @@
      (post-quit-message)))
   (default-window-proc hwnd msg wparam lparam))
 
-(defun simplewindow ()
-  (zetcode-main "SIMPLEWINDOW"	       
-                (callback simplewindow-wndproc)))
+(defun basic-test ()
+  (winmain "SIMPLEWINDOW"	       
+	   (callback simplewindow-wndproc)))
